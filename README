@@ -1,2 +1,13 @@
 
-Spell checker using word stemming
+h1. Spell Checker
+
+h2. Intro
+
+Simple spell checker using word stemming.  A basic word list is used to match words against.  Word stemming is used to reduce the size of the list and be a bit smarter about the way we match the words.
+
+h2. Installation
+
+Install the spellchecker as a gem
+
+bq. gem install spell_checker
+

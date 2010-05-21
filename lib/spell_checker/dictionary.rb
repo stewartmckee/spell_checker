@@ -28,7 +28,7 @@ class TextDictionary < Dictionary
   end
   
   def word_exists?( word )
-    unles
+    
     File.open(@custom_file, "w") unless File.exists?(@custom_file)
     File.open(@base_file, "w") unless File.exists?(@base_file)
     
