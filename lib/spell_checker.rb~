@@ -1,0 +1,5 @@
+require File.expand_path(File.dirname(__FILE__) + '/cnf_bridge/notifier')
+require File.expand_path(File.dirname(__FILE__) + '/cnf_bridge/storage_adapters')
+require File.expand_path(File.dirname(__FILE__) + '/cnf_bridge/messaging_adapters')
+require File.expand_path(File.dirname(__FILE__) + '/cnf_bridge/messages')
+require File.expand_path(File.dirname(__FILE__) + '/cnf_bridge/taskgen')
