@@ -9,6 +9,6 @@ spec = Gem::Specification.new do |s|
   s.files             = Dir["{spec,lib}/**/*"].delete_if { |f| f =~ /(rdoc)$/i }
   s.require_path      = "lib"
   s.has_rdoc          = false
-  s.extra_rdoc_files  = ["README"]
+  s.extra_rdoc_files  = ["README.textile"]
   s.add_dependency("stemmer")
 end
