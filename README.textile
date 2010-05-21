@@ -7,7 +7,9 @@ Simple spell checker using word stemming.  A basic word list is used to match wo
 
 h2. Installation
 
-Install the spellchecker as a gem
+Install the spell checker as a gem
 
 bq. gem install spell_checker
+
+h2. Usage
 
