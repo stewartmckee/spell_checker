@@ -1,11 +1,11 @@
 
 class Dictionary
-  
-end
-
-
-class MysqlDictionary < Dictionary
-  
+  # Parent dictionary class to be extended by specific dictionaries
+  def initialize
+  end
+  def word_exists?
+    raise RuntimeException "Not Implemented Yet"
+  end
 end
 
 class TextDictionary < Dictionary
@@ -41,7 +41,7 @@ class TextDictionary < Dictionary
     false
   end
 
-   def filter_stemmed_words
+  def filter_stemmed_words
     dictionary = []
     puts "loading stemmed list"
     File.move (@base_file, File.expand_path(File.dirname(@base_file) + "/original_dictionary.txt"))
