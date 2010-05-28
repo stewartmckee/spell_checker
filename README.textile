@@ -13,3 +13,13 @@ bq. gem install spell_checker
 
 h2. Usage
 
+You can create the spell checker with a standard new command
+spell = SpellChecker.new
+
+h3. Methods
+
+check_word(string) - returns boolean
+
+check_paragrah(string) - returns an array containing a hash per spelling failure of a word.
+                       - the hash contains :stemmed_word, :searched_word, :suggested_words
+
