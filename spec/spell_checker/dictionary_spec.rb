@@ -18,10 +18,10 @@ describe Dictionary do
     it "should return false if the word does not exist" do
       TextDictionary.new.word_exists?("sdgfdsgf").should be_false
     end
-    it "should be case sensitive" do
+    it "should be case insensitive" do
       @dict = TextDictionary.new
       @dict.word_exists?("valid").should be_true
-      @dict.word_exists?("Valid").should be_false
+      @dict.word_exists?("Valid").should be_true
     end
     
     it "should not use word stemming" do

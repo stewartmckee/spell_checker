@@ -6,11 +6,15 @@ class Dictionary
   def word_exists?
     raise RuntimeException "Not Implemented Yet"
   end
+  
 end
 
 class TextDictionary < Dictionary
   require 'ftools'
-
+  
+  # CURRENTLY USES AN ARRAY TO STORE DICTIONARY, SO DON'T USE TOO BIG A SOURCE
+  # WILL MOVE TO A BLOOM FILTER ONCE I PROPERLY UNDERSTAND HOW TO USE IT
+  
   def initialize(params={})
     @params = params
     if @params[:base_dictionary].nil?
@@ -25,20 +29,28 @@ class TextDictionary < Dictionary
       @custom_file = @params[:custom_dictionary]
       raise "Unable to find base dictionary '#{@params[:custom_dictionary]}'" unless File.exist?(@params[:custom_dictionary])
     end
-  end
-  
-  def word_exists?( word )
-    
-    File.open(@custom_file, "w") unless File.exists?(@custom_file)
-    File.open(@base_file, "w") unless File.exists?(@base_file)
-    
+
+    @word_list = []    
     File.open( @custom_file ) do |io|
-      io.each {|line| line.chomp! ; return true if line == word}
+      io.each {|line| line.chomp! ; @word_list << line}
     end
     File.open( @base_file ) do |io|
-      io.each {|line| line.chomp! ; return true if line == word}
+      io.each {|line| line.chomp! ; @word_list << line}
     end
-    false
+  end
+  
+  def word_exists?(word)
+    @word_list.include?(word.downcase) or @word_list.include?(word)
+    #File.open(@custom_file, "w") unless File.exists?(@custom_file)
+    #File.open(@base_file, "w") unless File.exists?(@base_file)
+    
+    #File.open( @custom_file ) do |io|
+    #  io.each {|line| line.chomp! ; return true if line == word}
+    #end
+    #File.open( @base_file ) do |io|
+    #  io.each {|line| line.chomp! ; return true if line == word}
+    #end
+    #false
   end
 
   def filter_stemmed_words
