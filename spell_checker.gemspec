@@ -1,6 +1,6 @@
 spec = Gem::Specification.new do |s|
   s.name              = "spell_checker"
-  s.version           = "0.0.2"
+  s.version           = "0.0.3"
   s.author            = "Stewart McKee"
   s.email             = "stewart@theizone.co.uk"
   s.homepage          = "http://rockwellcottage.com"
