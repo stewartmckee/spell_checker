@@ -52,6 +52,18 @@ class TextDictionary < Dictionary
     #end
     #false
   end
+  def suggested_words(word)
+    words = []
+    (0..word.length).to_a.each do |i|
+      regex = "^"
+      regex += word[0..i-1] unless i==0
+      regex += "."
+      regex += word[i+1..-1] unless i==word.length
+      regex += "$"
+      words << @word_list.reject{|item| !Regexp.new(regex).match(item)}
+    end
+    words.flatten.uniq.sort
+  end
 
   def filter_stemmed_words
     dictionary = []

@@ -23,7 +23,7 @@ class SpellChecker
     invalid_word_list = []
     paragraph.split(" ").map{|word| remove_punctuation(word)}.each do |word|
       if valid_word_to_check?(word)
-        invalid_word_list << {:searched_word => word, :stemmed_word => word.stem} unless check_word(word)
+        invalid_word_list << {:searched_word => word, :stemmed_word => word.stem, :suggested_words => @dictionary.suggested_words(word)} unless check_word(word)
       end
     end
     invalid_word_list.uniq
