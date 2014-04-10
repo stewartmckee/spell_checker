@@ -20,6 +20,5 @@ h3. Methods
 
 check_word(string) - returns boolean
 
-check_paragrah(string) - returns an array containing a hash per spelling failure of a word.
+check_paragraph(string) - returns an array containing a hash per spelling failure of a word.
                        - the hash contains :stemmed_word, :searched_word, :suggested_words
-
